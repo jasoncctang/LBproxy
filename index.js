@@ -22,7 +22,7 @@ const targets = [
 // RandomLB target index: Math.floor(Math.random()*3)
 
 http.createServer((req, res) => {
-    let i = Math.floor(Math.random()*10);
+    let i = Math.floor(Math.random()*5);
     proxyServer.web(req, res, {target: targets[i]});
 }).listen(3000, () => {
     console.log('Proxy server running on port 3000')
