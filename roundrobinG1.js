@@ -3,18 +3,18 @@ const proxy = require('http-proxy');
 
 const proxyServer = proxy.createProxyServer()
 const targets = [
-    "http://ec2-3-82-151-158.compute-1.amazonaws.com:8000/",
-    "http://ec2-3-91-200-37.compute-1.amazonaws.com:8000/",
-    "http://ec2-3-89-125-41.compute-1.amazonaws.com:8000/",
-    "http://ec2-54-173-181-0.compute-1.amazonaws.com:8000/",
-    "http://ec2-54-85-137-42.compute-1.amazonaws.com:8000/",
-    "http://ec2-54-147-245-190.compute-1.amazonaws.com:8000/",
-    "http://ec2-54-175-24-79.compute-1.amazonaws.com:8000/",
-    "http://ec2-3-87-228-79.compute-1.amazonaws.com:8000/",
-    "http://ec2-34-203-202-4.compute-1.amazonaws.com:8000/",
-    "http://ec2-3-91-188-60.compute-1.amazonaws.com:8000/",
-    "http://ec2-34-203-243-93.compute-1.amazonaws.com:8000/",
-    "http://ec2-3-88-210-249.compute-1.amazonaws.com:8000/"
+    "http://18.233.161.18:8000/",
+    "http://54.210.166.161:8000/",
+    "http://52.204.53.171:8000/",
+    "http://44.204.61.165:8000/",
+    "http://44.204.178.251:8000/",
+    "http://44.203.123.156:8000/",
+    "http://44.202.138.183:8000/",
+    "http://54.209.192.12:8000/",
+    "http://44.201.194.157:8000/",
+    "http://54.157.8.226:8000/",
+    "http://3.94.10.200:8000/",
+    "http://44.204.83.211:8000/"
 ];
 
 var i = -1
