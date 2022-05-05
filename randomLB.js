@@ -79,7 +79,7 @@ proxyServer.on('proxyRes', function (proxyRes, req, res) {
 
 http.createServer((req, res) => {
     minInd += 1;
-    let i = Math.floor(Math.random()*targets.length);
+    i = Math.floor(Math.random()*targets.length);
     proxyServer.web(req, res, {target: targets[i]});
 }).listen(3000, () => {
     console.log('Proxy server running on port 3000')
