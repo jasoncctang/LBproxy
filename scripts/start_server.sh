@@ -1,4 +1,4 @@
 #!/bin/bash
 cd /var/www/html/
 
-pm2 start randomLB.js -i max
+pm2 start roundrobin.js -i max
