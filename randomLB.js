@@ -59,7 +59,7 @@ proxyServer.on('proxyRes', function (proxyRes, req, res) {
     } else {
         oldtime = target_times[i].shift();
         avg_times[i] += (rtime - oldtime) / initial_explore;
-        
+
         choosable.delete(i);
         chosens.push(i);
         choosable.add(chosens.shift());
@@ -82,4 +82,4 @@ http.createServer((req, res) => {
     proxyServer.web(req, res, {target: targets[i]});
 }).listen(3000, () => {
     console.log('Proxy server running on port 3000')
-});
+}); 
