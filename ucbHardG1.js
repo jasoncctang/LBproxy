@@ -20,7 +20,7 @@ const targets = [
     "http://184.72.193.108:8000/"
 ];
 
-let choicecount = 3, initial_explore = 5;
+let choicecount = 6, initial_explore = 5;
 
 if(choicecount > targets.length - 1){
     choicecount = targets.length - 1;
