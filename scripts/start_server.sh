@@ -1,4 +1,4 @@
 #!/bin/bash
 cd /var/www/html/
 
-pm2 start ucbHardG1.js
+pm2 start randomLB.js
