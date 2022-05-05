@@ -77,6 +77,7 @@ proxyServer.on('proxyRes', function (proxyRes, req, res) {
 });
 
 server = http.createServer((req, res) => {
+    minInd += 1;
     i = (i+1) % targets.length;
     proxyServer.web(req, res, {target: targets[i]});
 })
