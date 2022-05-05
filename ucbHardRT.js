@@ -7,7 +7,7 @@ const http = require('http');
 const proxy = require('http-proxy');
 
 const targets = [
-    "http://3.82.151.68:8000/",
+    "http://34.201.76.76:8000/",
     "http://18.208.180.237:8000/",
     "http://54.197.21.48:8000/",
     "http://44.202.102.250:8000/",
