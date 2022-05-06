@@ -25,7 +25,7 @@ const targets = [
 //     'http://localhost:8001'
 // ];
 
-let choicecount = 9, initial_explore = 5;
+let choicecount = 6, initial_explore = 3;
 
 if(choicecount > targets.length - 1){
     choicecount = targets.length - 1;
