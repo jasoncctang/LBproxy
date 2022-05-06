@@ -1,4 +1,4 @@
 #!/bin/bash
 cd /var/www/html/
 
-pm2 start egreed-ucbHard.js -i max
+pm2 start egreed-ucbSoft.js -i max
