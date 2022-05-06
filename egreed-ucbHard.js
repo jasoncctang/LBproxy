@@ -85,8 +85,6 @@ proxyServer.on('proxyRes', function (proxyRes, req, res) {
             rri = (rri + 1) % indices.length;
             minInd = indices[rri];
         }
-        console.log(`Target index ${i} (${targets[i]}) had a response time of ${avg_times[i]} ms`);
-        console.log(`choices are ${indices} and chosen is ${minInd}`);
     }
 });
 
