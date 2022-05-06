@@ -25,7 +25,7 @@ const targets = [
 //     'http://localhost:8001'
 // ];
 
-let choicecount = 6, initial_explore = 3;
+let choicecount = 9, initial_explore = 3;
 let epsilon = 0.5, rri = -1;
 
 if(choicecount > targets.length - 1){
