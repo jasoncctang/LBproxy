@@ -20,6 +20,10 @@ const targets = [
     "http://34.201.215.175:8000/",
     "http://3.90.48.76:8000/"
 ];
+// const targets = [
+//     'http://localhost:8000',
+//     'http://localhost:8001'
+// ];
 
 let choicecount = 6, initial_explore = 3;
 let epsilon = 0.5, rri = -1;
@@ -31,7 +35,7 @@ if(choicecount > targets.length - 1){
 let target_times = [], avg_times = [], initialize = true;
 let time_count = 0, maxcount = initial_explore * targets.length;
 let i = -1, minInd = 0; // current target index
-let choosable = new Set(), chosens = [];
+let choosable = [], chosens = [];
 
 for(let j = 0; j < targets.length; j++){
     target_times.push([]);
@@ -58,33 +62,30 @@ proxyServer.on('proxyRes', function (proxyRes, req, res) {
             for(let j = 0; j < avg_times.length; j++){
                 avg_times[j] /= initial_explore;
 
-                if(j < choicecount) choosable.add(j);
+                if(j < choicecount) choosable.push(j);
                 else chosens.push(j);
             }
         }
     } else {
         oldtime = target_times[i].shift();
         avg_times[i] += (rtime - oldtime) / initial_explore;
-        
-        choosable.delete(i);
         chosens.push(i);
-        choosable.add(chosens.shift());
+        minInd = choosable[0];
+        
+        for(let j = 0; j < choosable.length; j++){
+            if(choosable[j] == i) choosable[j] = chosens.shift();
+            else if(avg_times[choosable[j]] < avg_times[minInd]){
+                minInd = choosable[j];
+            }
+        }
 
         let roll = Math.random();
-        let indices = Array.from(choosable)
-
-        if(roll < epsilon){
-            minInd = indices[0];
-            for(let j = 1; j < indices.length; j++){
-                let index = indices[j]
-                if(avg_times[index] < avg_times[minInd]){
-                    minInd = index;
-                }
-            }
-        } else {
-            rri = (rri + 1) % indices.length;
-            minInd = indices[rri];
+        if(roll > epsilon){
+            rri = (rri + 1) % choosable.length;
+            minInd = choosable[rri];
         }
+        // console.log(`Target index ${i} (${targets[i]}) had a response time of ${avg_times[i]} ms`);
+        // console.log(`choices are ${choosable} and chosen is ${minInd}`);
     }
 });
 
